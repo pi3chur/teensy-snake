@@ -1,10 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Arduino.h"
-
 #include "display_console.h"
-
 #include "dbg.h"
 
 struct console_ctx

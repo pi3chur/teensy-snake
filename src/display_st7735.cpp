@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
-#include "Arduino.h"
+
 #include "display_st7735.h"
 #include "ST7735_t3.h"
 #include "hal.h"
@@ -92,7 +92,6 @@ bool display_st7735_display_score(int score)
     disp.setTextSize(1);
     disp.setCursor(0, 140);
     disp.println(" Exclusively for \n Conclusive by SP.");
-
 
     disp.setTextColor(RGB(31,31,31), RGB(0,0,0));
 
