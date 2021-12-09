@@ -12,6 +12,9 @@
 #ifndef GAME_H
 #define GAME_H
 
+typedef int (*rand_clbk)(int, int);
+typedef unsigned long (*get_ms_clbk)(void);
+
 enum game_input_key
 {
     GAME_INPUT_NO_KEY = 0,
@@ -23,10 +26,6 @@ enum game_input_key
 };
 
 struct game_ctx;
-
-typedef int (*rand_clbk)(int, int);
-typedef unsigned long (*get_ms_clbk)(void);
-
 
 struct game_ctx *game_init(rand_clbk rand, get_ms_clbk get_ms);
 

@@ -32,8 +32,8 @@ struct game_ctx
     get_ms_clbk get_ms;
 };
 
-/* temporary game singleton */
-struct game_ctx game_ctx;
+/* TODO: fix (or keep) temporary game singleton */
+static struct game_ctx game_ctx;
 
 /* ********************************************************************* */
 
@@ -118,7 +118,7 @@ static bool place_fruit(struct game_ctx *ctx)
         int x = ctx->rand(1, BOARD_X_SIZE - 1); 
         int y = ctx->rand(1, BOARD_Y_SIZE - 1);
         
-        /* Rand and pray to find empty cell. 
+        /* Rand and pray to find empty cell.
            TODO: optimization */
         if (gameboard_cell_get(ctx->board, x, y) == CELL_TYPE_EMPTY)
         {
@@ -145,7 +145,8 @@ static bool reset_game(struct game_ctx *ctx)
     reset_board(ctx);
     snake_reset(ctx->snake, BOARD_X_SIZE / 2, BOARD_Y_SIZE / 2);
     place_fruit(ctx);
-    /* stim */
+
+    /* First artificial key to always start with the same direction. */
     game_input(ctx, GAME_INPUT_KEY_DOWN);
 
     return true;

@@ -1,7 +1,4 @@
-//#include <stddef.h>
-
 #include <Arduino.h>
-
 #include "utils.h"
 
 bool wait_to_exec(unsigned long *last_exec_ms, unsigned long interval_ms)

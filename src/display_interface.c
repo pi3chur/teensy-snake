@@ -1,9 +1,8 @@
 #include "display_interface.h"
-
 #include "display_console.h"
 #include "display_st7735.h"
 
-const struct display_interface console_iface = 
+static const struct display_interface console_iface = 
 {
     .init = diplay_console_init,
     .update = display_console_update,
@@ -12,7 +11,7 @@ const struct display_interface console_iface =
 };
 
 
-const struct display_interface st7735_iface = 
+static const struct display_interface st7735_iface = 
 {
     .init = diplay_st7735_init,
     .update = display_st7735_update,
