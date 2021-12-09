@@ -1,0 +1,43 @@
+Scenario: Teensy gives time after power on to open debug interface.
+@given Teensy is ready (connected, programmed, etc.).
+@when  Teensy is powered on.
+@then  Game starts after 4 seconds.
+
+Scenario: Game can be reset at any time.
+@given Teensy is running.
+@when  Enter key is pressed.
+@then  Game restarts.
+
+Scenario: Snake can move in 4 directions.
+@given Game is in progress.
+@when  Other than opposite to snakes direction key is pressed.
+@then  Snake direction changes accordingly.
+
+Scenario: Snake cannot move back.
+@given Game is in progress.
+@when  Opposite to snake direction key pressed.
+@then  Key ignored.
+
+Scenario: Game is played in short time periodic rounds.
+@given Game is in progress.
+@when  Its time to move.
+@then  Snakes head moves by 1 into last set direction.
+
+Scenario: Game gets harder with progress.
+@given Game is in progress.
+@when  Snakes moves into food.
+@then  Snake length, score and speed is raised.
+
+Scenario: Game ends on snake collision with walls or itself.
+@given Game is in progress.
+@when  Snakes moves into collission.
+@then  Game is over and score screen is presented.
+
+Scenario: Game waits for confirmation to start again.
+@given Game is over and waits for reset.
+@when  Input other than enter or time passes.
+@then  Nothing happens.
+
+@given Game is over and waits for reset.
+@when  Reset key is pressed.
+@then  New game starts.
